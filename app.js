@@ -14,7 +14,6 @@ const mongoose = require('mongoose');
 const usuario = 'CarlosColorado';
 const password = 'Saloylupe2915';
 const dbName = 'veterinaria';
-
 const uri = `mongodb+srv://${usuario}:${password}@cluster0.42qvbkh.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Cluster0`
 
 mongoose.connect(uri)
@@ -31,6 +30,7 @@ app.use(express.static(__dirname + '/public'));
 /* enrutamiento del proyecto  */
 app.use('/', require('./router/rutasweb'));
 app.use('/mascotas', require('./router/mascotas'));
+app.use('/servicios', require('./router/servicios'));
 
 /* direccionar a vista 404 cuando se presente el error 404 */
 app.use((req, res, next)=>{
